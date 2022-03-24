@@ -1,14 +1,14 @@
 {
   "name": "Showcase Template",
   "short_name": "Showcase Template",
-  "start_url": "/showcase/",
-  "scope": "/showcase/",
+  "start_url": "/computacionvisual/",
+  "scope": "/computacionvisual/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/showcase/favicon.svg",
+      "src": "/computacionvisual/favicon.svg",
       "sizes": "512x512"
     }
   ]
