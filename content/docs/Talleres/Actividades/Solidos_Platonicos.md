@@ -1,7 +1,8 @@
 
 
-## Solidos Platonicos
+## Sólidos Platónicos
 
+Con el proposito de familiarizarse con el uso de la plantilla y P5.js, se implementa el sólido platónico **Octaedro**, logrando el siguiente resultado.
 
 {{< details title="p5-Octaedro" open=false >}}
 ```html
@@ -10,4 +11,3 @@
 {{< /details >}}
 
 {{< p5-iframe sketch="/showcase/sketches/octaedro.js" width="450" height="450" >}}
-
