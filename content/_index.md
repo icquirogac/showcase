@@ -16,8 +16,8 @@ Estudiar el proceso de creación y manipulación de una imagen digital de una ap
 ## Integrantes
 
 * Valeria Huepa D. vhuepad@unal.edu.co\
-Estudiante de Ingeniería de Sistemas y Comutación
+Estudiante de Ingeniería de Sistemas y Computación
 
-* Ivan @unal.edu.co\
-Estudiante de Ingeniería de Sistemas y Comutación
+* Ivan C. Quiroga C. icquirogac@unal.edu.co\
+Estudiante de Ingeniería de Sistemas y Computación
 
