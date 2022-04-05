@@ -51,9 +51,9 @@ function setup() {
 }
 
 function apply() {
-  mask = createQuadrille([[parseInt(input[0].value()), parseInt(input[1].value()), parseInt(input[2].value()),],
-                          [parseInt(input[3].value()), parseInt(input[4].value()), parseInt(input[5].value()),],
-                          [parseInt(input[6].value()), parseInt(input[7].value()), parseInt(input[8].value()),],])
+  mask = createQuadrille([[parseFloat(input[0].value()), parseFloat(input[1].value()), parseFloat(input[2].value()),],
+                          [parseFloat(input[3].value()), parseFloat(input[4].value()), parseFloat(input[5].value()),],
+                          [parseFloat(input[6].value()), parseFloat(input[7].value()), parseFloat(input[8].value()),],])
   update()
 }
 
