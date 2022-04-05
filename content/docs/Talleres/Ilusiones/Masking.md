@@ -34,8 +34,7 @@ Instrucciones de uso
 El campo de Image Processing tiene varias aplicaciones, una de las mas conocidas es utilizando un kernel Gaussian, el cual difumina la imagen original.
 
 ### Referencias
-* Bach, M. (s. f.). “Stepping feet” Motion Illusion. 148 Visual Phenomena & Optical Illusions. https://michaelbach.de/ot/mot-feetLin/
 
 * Wikipedia. Kernel (image processing). https://en.wikipedia.org/wiki/Kernel_%28image_processing%29
 
-
+* Jean Pierre Charalambos. p5.quadrille.js. https://objetos.github.io/p5.quadrille.js/
