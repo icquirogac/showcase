@@ -4,6 +4,7 @@ let image;
 let image_mode = true;
 let input = [9];
 let button;
+let button2;
 
 function update() {
   let c = quadrille == null ? false : quadrille === conv;
@@ -47,6 +48,10 @@ function setup() {
   button.position(400, 265);
   button.mousePressed(apply);
   button.hide();
+  button2 = createButton('Reset');
+  button2.position(400, 305);
+  button2.mousePressed(reset);
+  button2.hide();
   update();
 }
 
@@ -54,7 +59,13 @@ function apply() {
   mask = createQuadrille([[parseFloat(input[0].value()), parseFloat(input[1].value()), parseFloat(input[2].value()),],
                           [parseFloat(input[3].value()), parseFloat(input[4].value()), parseFloat(input[5].value()),],
                           [parseFloat(input[6].value()), parseFloat(input[7].value()), parseFloat(input[8].value()),],])
-  update()
+  update();
+}
+function reset() {
+  mask = createQuadrille([[0.0625, 0.125, 0.0625],
+        [0.125,  0.25,  0.125],
+        [0.0625, 0.125, 0.0625]]);
+  update();
 }
 
 function draw() {
@@ -93,12 +104,14 @@ function keyPressed() {
       for (const inp in input) {
         input[inp].show();
         button.show();
+        button2.show();
       }
     }else{
       image_mode = !image_mode;
       for (const inp in input) {
         input[inp].hide();
         button.hide();
+        button2.hide();
       }
     }
   }
