@@ -1,19 +1,357 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Main Spaces #  Introducción #  El desarrollo de este taller tiene como objetivo implementar una herramienta de dibujo 3D, apoyandonos en el uso de librerias tales como p5.treegl, p5.EasyCam y ml5.js
-Contexto #  Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso e integrandolo con una libreria como ml5.js, desarrollamos una herramienta la cual permite dibujar en una interfaz 3D, adicionalmente es capaz de leer ciertos gestos con la mano, dependiendo del gesto detectado se puede cambiar ciertas configuraciones a la hora de dibujar"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Main Spaces #  Introducción #  El desarrollo de este taller tiene como objetivo implementar una herramienta de dibujo 3D, apoyandonos en el uso de librerias tales como p5.treegl, p5.EasyCam y ml5.js
-Contexto #  Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso e integrandolo con una libreria como ml5.js, desarrollamos una herramienta la cual permite dibujar en una interfaz 3D, adicionalmente es capaz de leer ciertos gestos con la mano, dependiendo del gesto detectado se puede cambiar ciertas configuraciones a la hora de dibujar"><meta property="og:type" content="article"><meta property="og:url" content="https://icquirogac.github.io/showcase/docs/Talleres/Scene-Trees/Main_Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-05-24T08:28:35-05:00"><title>Main Spaces | Computacion Visual 2022-I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
-<script defer src=/showcase/en.search.min.23d56dd430b0fe089960979b920093d4672a272c91e8d2d26936803e9bc94e35.js integrity="sha256-I9Vt1DCw/giZYJebkgCT1GcqJyyR6NLSaTaAPpvJTjU=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Main Spaces # Introducción # El desarrollo de este taller tiene como objetivo implementar una herramienta de dibujo 3D, apoyandonos en el uso de librerias tales como p5.treegl, p5.EasyCam y ml5.js
+Contexto # Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso e integrandolo con una libreria como ml5.js, desarrollamos una herramienta la cual permite dibujar en una interfaz 3D, adicionalmente es capaz de leer ciertos gestos con la mano, dependiendo del gesto detectado se puede cambiar ciertas configuraciones a la hora de dibujar"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Main Spaces # Introducción # El desarrollo de este taller tiene como objetivo implementar una herramienta de dibujo 3D, apoyandonos en el uso de librerias tales como p5.treegl, p5.EasyCam y ml5.js
+Contexto # Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso e integrandolo con una libreria como ml5.js, desarrollamos una herramienta la cual permite dibujar en una interfaz 3D, adicionalmente es capaz de leer ciertos gestos con la mano, dependiendo del gesto detectado se puede cambiar ciertas configuraciones a la hora de dibujar"><meta property="og:type" content="article"><meta property="og:url" content="https://icquirogac.github.io/showcase/docs/Talleres/Scene-Trees/Main_Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-14T09:50:41-05:00"><title>Main Spaces | Computacion Visual 2022-I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.decc0d09d6e0d3e068305651b55d009acc1854d3fdafe222f6c59cd82fcbe495.js integrity="sha256-3swNCdbg0+BoMFZRtV0AmswYVNP9r+Ii9sWc2C/L5JU=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Computacion Visual 2022-I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Talleres</span><ul><li><input type=checkbox id=section-43b7d847c7d1abc7c0759ec5b27712e8 class=toggle>
-<label for=section-43b7d847c7d1abc7c0759ec5b27712e8 class="flex justify-between"><a href=/showcase/docs/Talleres/Actividades/>Actividades</a></label><ul><li><a href=/showcase/docs/Talleres/Actividades/Solidos_Platonicos/>Solidos Platonicos</a></li></ul></li><li><a href=/showcase/docs/Talleres/Anti-aliasing/>Anti Aliasing</a></li><li><input type=checkbox id=section-8269a9a56f31dd363e72c7c9cb370ab6 class=toggle>
-<label for=section-8269a9a56f31dd363e72c7c9cb370ab6 class="flex justify-between"><a href=/showcase/docs/Talleres/Ilusiones/>Ilusiones</a></label><ul><li><a href=/showcase/docs/Talleres/Ilusiones/Masking/>Masking</a></li><li><a href=/showcase/docs/Talleres/Ilusiones/Stepping_Feet/>Stepping Feet</a></li></ul></li><li><input type=checkbox id=section-27287085d80f81e0c09b7a23ac5e6970 class=toggle>
-<label for=section-27287085d80f81e0c09b7a23ac5e6970 class="flex justify-between"><a href=/showcase/docs/Talleres/p5/>P5</a></label><ul><li><a href=/showcase/docs/Talleres/p5/div/>Div</a></li><li><a href=/showcase/docs/Talleres/p5/iframe/>Iframe</a></li></ul></li><li><input type=checkbox id=section-8c05fcea50aae771d78a596c668026de class=toggle checked>
-<label for=section-8c05fcea50aae771d78a596c668026de class="flex justify-between"><a role=button>Scene Trees</a></label><ul><li><a href=/showcase/docs/Talleres/Scene-Trees/Main_Spaces/ class=active>Main Spaces</a></li></ul></li><li><input type=checkbox id=section-00e7ec0f4e648d076be44a01b9e17275 class=toggle>
-<label for=section-00e7ec0f4e648d076be44a01b9e17275 class="flex justify-between"><a href=/showcase/docs/Talleres/Shortcodes/>Shortcodes</a></label><ul><li><a href=/showcase/docs/Talleres/Shortcodes/buttons/>Buttons</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/columns/>Columns</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/details/>Details</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/expand/>Expand</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/hints/>Hints</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/katex/>Katex</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/mermaid/>Mermaid</a></li><li><a href=/showcase/docs/Talleres/Shortcodes/tabs/>Tabs</a></li></ul></li></ul></li></ul><ul><li><a href=/showcase/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<label for=section-43b7d847c7d1abc7c0759ec5b27712e8 class="flex justify-between"><a href=/showcase/docs/Talleres/Actividades/>Actividades</a></label><ul><li><a href=/showcase/docs/Talleres/Actividades/Solidos_Platonicos/>Solidos Platonicos</a></li></ul></li><li><input type=checkbox id=section-8269a9a56f31dd363e72c7c9cb370ab6 class=toggle>
+<label for=section-8269a9a56f31dd363e72c7c9cb370ab6 class="flex justify-between"><a href=/showcase/docs/Talleres/Ilusiones/>Ilusiones</a></label><ul><li><a href=/showcase/docs/Talleres/Ilusiones/Masking/>Masking</a></li><li><a href=/showcase/docs/Talleres/Ilusiones/Stepping_Feet/>Stepping Feet</a></li></ul></li><li><input type=checkbox id=section-8496ceebe33d68d3b2255db0b4f93788 class=toggle>
+<label for=section-8496ceebe33d68d3b2255db0b4f93788 class="flex justify-between"><a role=button>Rendering</a></label><ul><li><a href=/showcase/docs/Talleres/Rendering/Anti-aliasing/>Anti Aliasing</a></li></ul></li><li><input type=checkbox id=section-8c05fcea50aae771d78a596c668026de class=toggle checked>
+<label for=section-8c05fcea50aae771d78a596c668026de class="flex justify-between"><a role=button>Scene Trees</a></label><ul><li><a href=/showcase/docs/Talleres/Scene-Trees/Main_Spaces/ class=active>Main Spaces</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Main Spaces</strong>
 <label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#main-spaces>Main Spaces</a><ul><li><a href=#introducción>Introducción</a></li><li><a href=#contexto>Contexto</a></li><li><a href=#resultados-y-código-solución>Resultados y Código (Solución)</a></li><li><a href=#discusión>Discusión</a></li><li><a href=#conclusiones>Conclusiones</a><ul><li><a href=#referencias>Referencias</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=main-spaces>Main Spaces
 <a class=anchor href=#main-spaces>#</a></h1><h2 id=introducción>Introducción
 <a class=anchor href=#introducci%c3%b3n>#</a></h2><p>El desarrollo de este taller tiene como objetivo implementar una herramienta de dibujo 3D, apoyandonos en el uso de librerias tales como <a href=https://github.com/VisualComputing/p5.treegl>p5.treegl</a>, <a href=https://github.com/freshfork/p5.EasyCam>p5.EasyCam</a> y <a href=https://ml5js.org>ml5.js</a></p><h2 id=contexto>Contexto
 <a class=anchor href=#contexto>#</a></h2><p>Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso e integrandolo con una libreria como <a href=https://ml5js.org>ml5.js</a>, desarrollamos una herramienta la cual permite dibujar en una interfaz 3D, adicionalmente es capaz de leer ciertos gestos con la mano, dependiendo del gesto detectado se puede cambiar ciertas configuraciones a la hora de dibujar</p><h2 id=resultados-y-código-solución>Resultados y Código (Solución)
-<a class=anchor href=#resultados-y-c%c3%b3digo-soluci%c3%b3n>#</a></h2><ul><li>Presione la tecla &lsquo;r&rsquo; para grabar.</li><li>Presione la tecla &lsquo;c&rsquo; para borrar el canvas</li><li>Presione la tecla &lsquo;p&rsquo; para cambiar el tipo de camara</li><li>Presione dos veces sobre el canvas para reiniciar la posición de la camara</li><li>Con la mano haga el gesto &lsquo;☝️&rsquo; para dibujar con una esfera</li><li>Con la mano haga el gesto &lsquo;✌️&rsquo; para dibujar con una caja</li><li>Con la mano haga el gesto &lsquo;👌&rsquo; para dibujar con un cono</li><li>Con la mano haga el gesto &lsquo;✊&rsquo; para cambiar el color</li></ul><iframe id=brush3d style=width:758px;height:624px srcdoc="
+<a class=anchor href=#resultados-y-c%c3%b3digo-soluci%c3%b3n>#</a></h2><ul><li>Presione la tecla &lsquo;r&rsquo; para grabar.</li><li>Presione la tecla &lsquo;c&rsquo; para borrar el canvas</li><li>Presione la tecla &lsquo;p&rsquo; para cambiar el tipo de camara</li><li>Presione dos veces sobre el canvas para reiniciar la posición de la camara</li><li>Con la mano haga el gesto &lsquo;☝️&rsquo; para dibujar con una esfera</li><li>Con la mano haga el gesto &lsquo;✌️&rsquo; para dibujar con una caja</li><li>Con la mano haga el gesto &lsquo;👌&rsquo; para dibujar con un cono</li><li>Con la mano haga el gesto &lsquo;✊&rsquo; para cambiar el color</li></ul><details><summary>main-spaces</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// Goal in the 3d Brush is double, to implement:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 1. a gesture parser to deal with depth, i.e.,
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// replace the depth slider with something really
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// meaningful. You may use a 3d sensor hardware
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// such as: https://en.wikipedia.org/wiki/Leap_Motion
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// or machine learning software to parse hand (or
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// body) gestures from a (video) / image, such as:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// https://ml5js.org/
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 2. other brushes to stylize the 3d brush, taking
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// into account its shape and alpha channel, gesture
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// speed, etc.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Brush controls
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>depth</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>brush</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>easycam</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>state</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>escorzo</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>points</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>record</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>handpose</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>video</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>hands</span> <span style=color:#f92672>=</span> [];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>colorIndex</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>colorsDefault</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;#00ff00&#34;</span>, <span style=color:#e6db74>&#34;#bb00ff&#34;</span>, <span style=color:#e6db74>&#34;#0000ff&#34;</span>, <span style=color:#e6db74>&#34;#ffff00&#34;</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>selectorsColor</span> <span style=color:#f92672>=</span> [];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>selectorFigure</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>sizeX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>735</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>sizeY</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>600</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;initial&#34;</span> <span style=color:#75715e>//Closed, Unknow, Open, One, Two, Three
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>sizeX</span>, <span style=color:#a6e22e>sizeY</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createCapture</span>(<span style=color:#a6e22e>VIDEO</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video</span>.<span style=color:#a6e22e>size</span>(<span style=color:#a6e22e>sizeX</span><span style=color:#f92672>/</span><span style=color:#ae81ff>5</span>, <span style=color:#a6e22e>sizeY</span><span style=color:#f92672>/</span><span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>handpose</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ml5</span>.<span style=color:#a6e22e>handpose</span>(<span style=color:#a6e22e>video</span>, <span style=color:#a6e22e>modelReady</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// This sets up an event that fills the global variable &#34;predictions&#34;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// with an array every time new hand poses are detected
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Hide the video element, and just show the canvas
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>video</span>.<span style=color:#a6e22e>hide</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>handpose</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#34;hand&#34;</span>, <span style=color:#a6e22e>results</span> =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>hands</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>results</span>;
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// easycam stuff
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>state</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>distance</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>250</span>,           <span style=color:#75715e>// scalar
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>center</span><span style=color:#f92672>:</span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],       <span style=color:#75715e>// vector
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>rotation</span><span style=color:#f92672>:</span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>],  <span style=color:#75715e>// quaternion
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  };
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createEasyCam</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam</span>.<span style=color:#a6e22e>state_reset</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>state</span>;   <span style=color:#75715e>// state to use on reset (double-click/tap)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam</span>.<span style=color:#a6e22e>setState</span>(<span style=color:#a6e22e>state</span>, <span style=color:#ae81ff>2000</span>); <span style=color:#75715e>// now animate to that state
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>escorzo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>perspective</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// brush stuff
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>points</span> <span style=color:#f92672>=</span> [];
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSelect</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>position</span>(<span style=color:#a6e22e>sizeX</span><span style=color:#f92672>-</span><span style=color:#ae81ff>80</span>, <span style=color:#ae81ff>230</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Sphere&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Box&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Cone&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;Sphere&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span><span style=color:#ae81ff>4</span> ; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>selectorsColor</span>[<span style=color:#a6e22e>i</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>createColorPicker</span>(<span style=color:#a6e22e>colorsDefault</span>[<span style=color:#a6e22e>i</span>]);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>selectorsColor</span>[<span style=color:#a6e22e>i</span>].<span style=color:#a6e22e>position</span>(<span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>30</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>i</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>));
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// select initial brush
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>brush</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>brushFun</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>modelReady</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Model ready!&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//Funcion que mapea una coordenada, normalizando y escalando
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>mapCord</span>(<span style=color:#a6e22e>cord</span>, <span style=color:#a6e22e>originMin</span>, <span style=color:#a6e22e>originMax</span>, <span style=color:#a6e22e>min</span>, <span style=color:#a6e22e>max</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (<span style=color:#a6e22e>cord</span><span style=color:#f92672>-</span><span style=color:#a6e22e>originMin</span>)<span style=color:#f92672>/</span>(<span style=color:#a6e22e>originMax</span><span style=color:#f92672>-</span><span style=color:#a6e22e>originMin</span>) <span style=color:#f92672>*</span> (<span style=color:#a6e22e>max</span><span style=color:#f92672>-</span><span style=color:#a6e22e>min</span>) <span style=color:#f92672>+</span> <span style=color:#a6e22e>min</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>update</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>120</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>0.8</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stroke</span>(<span style=color:#e6db74>&#39;magenta&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>grid</span>({ <span style=color:#a6e22e>dotted</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>axes</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>point</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>points</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>translate</span>(<span style=color:#a6e22e>point</span>.<span style=color:#a6e22e>worldPosition</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>brush</span>(<span style=color:#a6e22e>point</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>beginHUD</span>();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>image</span>(<span style=color:#a6e22e>video</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>sizeX</span><span style=color:#f92672>/</span><span style=color:#ae81ff>4</span>, <span style=color:#a6e22e>sizeY</span><span style=color:#f92672>/</span><span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// fill(colorSel);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// noStroke();
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// rect(width - 70, 20, 40, 40);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>selectorsColor</span>[<span style=color:#a6e22e>colorIndex</span>].<span style=color:#a6e22e>color</span>());
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>switch</span> (<span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>value</span>()) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Sphere&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>circle</span>(<span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>95</span>, <span style=color:#ae81ff>35</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>), <span style=color:#ae81ff>20</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Box&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>square</span>(<span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>, <span style=color:#ae81ff>25</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>), <span style=color:#ae81ff>19</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Cone&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>triangle</span>(<span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>, <span style=color:#ae81ff>45</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>), <span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>95</span>, <span style=color:#ae81ff>25</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>), <span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>85</span>,<span style=color:#ae81ff>45</span><span style=color:#f92672>+</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>*</span><span style=color:#ae81ff>50</span>));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>default</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>drawKeypoints</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>endHUD</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>checkGesture</span>(<span style=color:#a6e22e>landmarks</span>){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>fingers</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>, 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>middleFinger</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>pinky</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>ringFinger</span>   
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>isOpen</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>isClosed</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>isOne</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>isTwo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>isThree</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>pos</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>pos</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>finger</span>.<span style=color:#a6e22e>length</span> ; <span style=color:#a6e22e>pos</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>isOpen</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isOpen</span>) <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Open&#34;</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>isClosed</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isClosed</span>) <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Closed&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fingers</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>middleFinger</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>pinky</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>ringFinger</span>   
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>isOne</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>pos</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>pos</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>.<span style=color:#a6e22e>length</span> ; <span style=color:#a6e22e>pos</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#a6e22e>pos</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#a6e22e>pos</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>isOne</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isOne</span>) <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;One&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fingers</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>pinky</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>ringFinger</span>   
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>finger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>isTwo</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fingers</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>, 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>middleFinger</span>, 
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>pos</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>pos</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>finger</span>.<span style=color:#a6e22e>length</span> ; <span style=color:#a6e22e>pos</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>isTwo</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isTwo</span>) <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Two&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#ae81ff>2</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>isThree</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fingers</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>middleFinger</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>pinky</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>ringFinger</span>   
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>finger</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>fingers</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>pos</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>pos</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>finger</span>.<span style=color:#a6e22e>length</span> ; <span style=color:#a6e22e>pos</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>finger</span>[<span style=color:#a6e22e>pos</span>][<span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>isThree</span><span style=color:#f92672>=</span><span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>isThree</span>) <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Three&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Unknown&#34;</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//Cambia el color cada que se llama (Verde, Morado, Azul, Amarillo, Cian)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>switchSelector</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>=</span>(<span style=color:#a6e22e>colorIndex</span><span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>%</span><span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>update</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>dx</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>abs</span>(<span style=color:#a6e22e>mouseX</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pmouseX</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>dy</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>abs</span>(<span style=color:#a6e22e>mouseY</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pmouseY</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>constrain</span>((<span style=color:#a6e22e>dx</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>dy</span>) <span style=color:#f92672>/</span> (<span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> (<span style=color:#a6e22e>width</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>height</span>)), <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lastStateHand</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>stateHand</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// console.log(&#34;mouseX&#34; + mouseX + &#34;mouseX&#34; + mouseY);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// console.log(&#34;pmouseX&#34; + pmouseX + &#34;pmouseY&#34; + pmouseY);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// console.log(&#34;---------&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>hands</span>[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>?</span>.<span style=color:#a6e22e>annotations</span>){
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>checkGesture</span>(<span style=color:#a6e22e>hands</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>annotations</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>stateHand</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>lastStateHand</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>stateHand</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;Closed&#34;</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>switchSelector</span>();
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;One&#34;</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;Sphere&#39;</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;Two&#34;</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;Box&#39;</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>stateHand</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;Three&#34;</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;Cone&#39;</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>record</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>points</span>.<span style=color:#a6e22e>push</span>({
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>worldPosition</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>treeLocation</span>([
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>mapCord</span>(<span style=color:#ae81ff>600</span><span style=color:#f92672>-</span><span style=color:#a6e22e>hands</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>annotations</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>0</span>], <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>600</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>sizeX</span>), 
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>mapCord</span>(<span style=color:#a6e22e>hands</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>annotations</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>1</span>], <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>460</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>sizeY</span>), 
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>mapCord</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>-</span><span style=color:#a6e22e>hands</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>annotations</span>.<span style=color:#a6e22e>indexFinger</span>[<span style=color:#ae81ff>3</span>][<span style=color:#ae81ff>2</span>], <span style=color:#f92672>-</span><span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>0.2</span>, <span style=color:#ae81ff>0.8</span>)], { <span style=color:#a6e22e>from</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;SCREEN&#39;</span>, <span style=color:#a6e22e>to</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;WORLD&#39;</span> }),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>selectorsColor</span>[<span style=color:#a6e22e>colorIndex</span>].<span style=color:#a6e22e>color</span>(),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>speed</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>speed</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>figure</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>selectorFigure</span>.<span style=color:#a6e22e>value</span>(),
+</span></span><span style=display:flex><span>      });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>stateHand</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Unknown&#34;</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>brushFun</span>(<span style=color:#a6e22e>point</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// TODO parameterize sphere radius and / or
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// alpha channel according to gesture speed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>point</span>.<span style=color:#a6e22e>color</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>switch</span> (<span style=color:#a6e22e>point</span>.<span style=color:#a6e22e>figure</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Sphere&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Box&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;Cone&#34;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>cone</span>(<span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>default</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>keyPressed</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>key</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;r&#39;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>record</span> <span style=color:#f92672>=</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>record</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>key</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;p&#39;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>escorzo</span> <span style=color:#f92672>=</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>escorzo</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>escorzo</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>perspective</span>() <span style=color:#f92672>:</span> <span style=color:#a6e22e>ortho</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;c&#39;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>points</span> <span style=color:#f92672>=</span> [];
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>mouseWheel</span>(<span style=color:#a6e22e>event</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//comment to enable page scrolling
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// A function to draw ellipses over the detected keypoints
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawKeypoints</span>() 
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>hands</span>.<span style=color:#a6e22e>length</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>hand</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>hands</span>[<span style=color:#a6e22e>i</span>];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>j</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>j</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>hand</span>.<span style=color:#a6e22e>landmarks</span>.<span style=color:#a6e22e>length</span>; <span style=color:#a6e22e>j</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>keypoint</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>hand</span>.<span style=color:#a6e22e>landmarks</span>[<span style=color:#a6e22e>j</span>];
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>selectorsColor</span>[<span style=color:#a6e22e>colorIndex</span>].<span style=color:#a6e22e>color</span>());
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>ellipse</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>mapCord</span>(<span style=color:#ae81ff>600</span><span style=color:#f92672>-</span><span style=color:#a6e22e>keypoint</span>[<span style=color:#ae81ff>0</span>], <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>600</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>sizeX</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>mapCord</span>(<span style=color:#a6e22e>keypoint</span>[<span style=color:#ae81ff>1</span>], <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>460</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>sizeY</span>),
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>10</span>,
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><iframe id=brush3d style=width:758px;height:624px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -33,5 +371,5 @@ Contexto #  Teniendo como punto de partida el codigo que el profesor nos brindo 
       "></iframe><h2 id=discusión>Discusión
 <a class=anchor href=#discusi%c3%b3n>#</a></h2><ul><li>La libreria ml5.js no es precisa a la hora de detectar los movimientos de la mano, la profundidad se altera con facilidad</li><li>Se pueden programar mas gestos y dar una mayor cantidad de opciones de lo que puede llegar a realizar con solo gestos de la mano</li><li>Con el uso de un hardware especializado como el LeapMotion se puede llegar a tener un mejor rastreo de los movimientos de las manos, lastimosamente el software del LeapMotion esta desactualizado y sin soporte, las librerias actualmente utilizan un puerto websocket por el cual recibian la informacion del LeapMotion, pero actualmente el controlador ya no crea el servidor por el cual se conecta con las librerias, dejando las libreerias desactualizadas y sin funcionamiento</li></ul><h2 id=conclusiones>Conclusiones
 <a class=anchor href=#conclusiones>#</a></h2><p>Se pueden realizar interfaces 3D capaces de detectar gestos para dibujar, con algunas mejoras en el hardware implementado se puede mejorar en la experiencia que tiene el usuario para dibujar</p><h3 id=referencias>Referencias
-<a class=anchor href=#referencias>#</a></h3><ul><li>ml5.js Handpose. <a href=https://learn.ml5js.org/#/reference/handpose>https://learn.ml5js.org/#/reference/handpose</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/2befa3570dd8a48ed303a901ab8deab97f83183a title="Last modified by icquirogac | May 24, 2022" target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
-<span>May 24, 2022</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#main-spaces>Main Spaces</a><ul><li><a href=#introducción>Introducción</a></li><li><a href=#contexto>Contexto</a></li><li><a href=#resultados-y-código-solución>Resultados y Código (Solución)</a></li><li><a href=#discusión>Discusión</a></li><li><a href=#conclusiones>Conclusiones</a><ul><li><a href=#referencias>Referencias</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
+<a class=anchor href=#referencias>#</a></h3><ul><li>ml5.js Handpose. <a href=https://learn.ml5js.org/#/reference/handpose>https://learn.ml5js.org/#/reference/handpose</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/86c1ffa60131b558cab3e2ad3af945a77909484b title='Last modified by icquirogac | June 14, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 14, 2022</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#main-spaces>Main Spaces</a><ul><li><a href=#introducción>Introducción</a></li><li><a href=#contexto>Contexto</a></li><li><a href=#resultados-y-código-solución>Resultados y Código (Solución)</a></li><li><a href=#discusión>Discusión</a></li><li><a href=#conclusiones>Conclusiones</a><ul><li><a href=#referencias>Referencias</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
