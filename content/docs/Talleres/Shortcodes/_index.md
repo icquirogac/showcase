@@ -1,7 +1,0 @@
----
-bookCollapseSection: true
----
-
-# plantilla
-
-{{<section>}}

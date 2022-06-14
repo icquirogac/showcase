@@ -21,7 +21,7 @@ Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina
 * Con la mano haga el gesto '✊' para cambiar el color
 
 
-{{< details title="stepping-feet" open=false >}}
+{{< details title="main-spaces" open=false >}}
 ```js
 // Goal in the 3d Brush is double, to implement:
 // 1. a gesture parser to deal with depth, i.e.,
