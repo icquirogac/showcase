@@ -1,14 +1,14 @@
 {
   "name": "Computacion Visual 2022-I",
   "short_name": "Computacion Visual 2022-I",
-  "start_url": "/showcase/",
-  "scope": "/showcase/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/showcase/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]
