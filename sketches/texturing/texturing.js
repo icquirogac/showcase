@@ -1,21 +1,20 @@
 let easycam;
 let uvShader;
 let opacity;
-let radius;
+let size;
 
 function preload() {
-  // Define geometry in world space (i.e., matrices: Tree.pmvMatrix).
   // The projection and modelview matrices may be emitted separately
   // (i.e., matrices: Tree.pMatrix | Tree.mvMatrix), which actually
   // leads to the same gl_Position result.
   // Interpolate only texture coordinates (i.e., varyings: Tree.texcoords2).
   // see: https://github.com/VisualComputing/p5.treegl#handling
-  uvShader = readShader('../../../../sketches/texturing/uv_alpha.frag', { matrices: Tree.pmvMatrix, varyings: Tree.texcoords2 });
+  uvShader = readShader('../../../../sketches/texturing/uv_alpha.frag', { varyings: Tree.texcoord2 });
 }
 
 function setup() {
   createCanvas(600, 600, WEBGL);
-  radius = 100;
+  size = 2;
 
   // easycam stuff
   let state = {
@@ -54,14 +53,28 @@ function draw() {
   // see: https://github.com/VisualComputing/p5.treegl#heads-up-display
   beginHUD();
   noStroke();
-  circle(mouseX, mouseY ,radius);
+  
+  beginShape();
+  vertex(mouseX, mouseY + (27*size), 10, 1, 1);
+  vertex(mouseX + (25 *size), mouseY + (10*size), 10, 1, 0);
+  vertex(mouseX + (20 *size), mouseY - (20*size), 10, 0, 1);
+  vertex(mouseX - (20 *size), mouseY - (20*size), 10, 0, 1);
+  vertex(mouseX - (25 *size), mouseY + (10*size), 10, 1, 0);
+  endShape();
+
   endHUD();
+}
+
+function keyPressed() {
+  if (key === 'r') {
+    size = 1;
+  }
 }
 
 function mouseWheel(event) {
   if(event.delta > 0 )
-    radius += 10
+    size += 0.1
   else
-    radius -= 10
+    size -= 0.1
   return false;
 }
