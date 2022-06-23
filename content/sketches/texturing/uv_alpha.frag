@@ -6,5 +6,6 @@ varying vec4 color4;
 uniform float opacity;
 
 void main() {
-  gl_FragColor = vec4(0.0, texcoords2.xy,  opacity);
+
+  gl_FragColor = vec4(0.0, texcoords2.yx,  opacity);
 }
