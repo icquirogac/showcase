@@ -1,4 +1,4 @@
-# Texture sampling - coloring brightness
+# Procedural texturing
 
 ## Introducción 
 
@@ -7,27 +7,8 @@ El desarrollo de este taller tiene como objetivo familiarizarse con el uso de sh
 ## Contexto
 En este ejercicio se busca implementar otras herramientas de brillo de color ( coloring brightness ), tales como el valor V de HSV, la luminosidad L de HSL y el promedio de componentes, teniendo como punto de partida el codigo brindado por el profesor en la pagina del curso.
 
-Los metodos implementados corresponden a las siguientes ecuaciones:
-* Component average
-
-{{< katex display >}} 
-I = avg(R, G, G) = \frac 1 3 (R + G + B)
-{{< /katex >}} 
-
-* HSV value V
-
-{{< katex display >}} 
-V = max(R, G, G) = M
-{{< /katex >}} 
-
-* HSL lightness L
-
-{{< katex display >}} 
-V = mimd(R, G, G) = \frac 1 2 (M + m)
-{{< /katex >}} 
 
 
-Implemente el teñido de textura mezclando datos interpolados de color y texel.
 
 ## Resultados y Código (Solución)
 
