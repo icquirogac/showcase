@@ -7,7 +7,7 @@ El desarrollo de este taller tiene como objetivo familiarizarse con el uso de sh
 ## Contexto
 En este ejercicio se busca implementar un algoritmo el cual permita crear un patron el cual pueda ser asignada como textura a una figura. 
 
-A continuación se muestra un patron similar al de una pared de ladrillos en un cono donde cada subregión es pintada.
+A continuación se muestra un patron similar al de una pared de ladrillos donde cada subregión es pintada.
 ## Resultados y Código (Solución)
 
 {{< p5-iframe sketch="/showcase/sketches/texturing/pattern.js" lib1="https://unpkg.com/ml5@latest/dist/ml5.min.js" lib2="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="450" height="450">}}
