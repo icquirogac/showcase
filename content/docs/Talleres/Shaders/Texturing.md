@@ -6,7 +6,7 @@ El desarrollo de este taller tiene como objetivo familiarizarse con el uso de sh
 
 ## Contexto
 
-Teniendo como punto de partida el codigo que el profesor nos brindo en la pagina del curso 
+Se desea aplicar un shader con una figura en especifico definiendo cada vertice de la figura a que posicion (u,v) del shader se debera aplicar
 
 ## Resultados y Código (Solución)
 
@@ -116,15 +116,4 @@ void main() {
 
 {{< p5-iframe sketch="/showcase/sketches/texturing/texturing.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" lib2="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="624" height="624" >}}
 
-
-## Discusión
-
-* Diferentes formas pueden ser aplicadas con el shader
-
-
-## Conclusiones
-
-
-
-### Referencias
 
